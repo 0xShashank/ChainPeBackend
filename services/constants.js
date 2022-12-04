@@ -41,7 +41,7 @@ const supportedChains = {
     private_https_url: "https://rpc.fusespark.io/",
     private_wss_url:
       "wss://rpc.fusespark.io/",
-    contract: "0xf18765De3E64c9e62dE7fef0493B50b1B18b16aD",
+    contract: "0x5CA6ba1Ec356Dd2832eBDa811Eae46c3DFB78611",
     buyCurrency: {
       BNB: ethers.constants.AddressZero,
       BUSD: "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee",

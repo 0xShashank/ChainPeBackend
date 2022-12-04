@@ -8,7 +8,8 @@ contract ChainPe is Ownable {
         string name,
         string vpa,
         uint256 amount,
-        uint256 rate
+        uint256 rate,
+        address indexed sender
     );
 
     function pay(
@@ -18,6 +19,6 @@ contract ChainPe is Ownable {
         uint256 rate
     ) public payable {
         require(msg.value * rate >= amount);
-        emit PaymentCompleted(name, vpa, amount, rate);
+        emit PaymentCompleted(name, vpa, amount, rate, msg.sender);
     }
 }
