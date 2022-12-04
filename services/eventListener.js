@@ -1,6 +1,5 @@
 const { ethers } = require("ethers");
 const { supportedChains, getProvider } = require("./constants");
-const sendNotification = require("./push");
 const Contract = require("../contract/artifacts/contracts/Main.sol/ChainPe.json");
 
 const remmitPayout = require("./razorpay");
@@ -18,13 +17,12 @@ const registerEventListner = (chain) => {
   );
   console.log(chain, "registered");
   eventEmitterContract.on("PaymentCompleted", (name, vpa, amount, rate) => {
-    console.log("PaymentCompleted", name, vpa, amount, rate, sender);
+    console.log("PaymentCompleted", name, vpa, amount, rate);
     consumer.paymentCompleted(
       name,
       vpa,
       ethers.utils.formatUnits(amount) * 100
     );
-    sendNotification(sender, ethers.utils.formatUnits(amount) * 100);
   });
 };
 
